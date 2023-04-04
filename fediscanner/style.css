@@ -1,0 +1,148 @@
+:root {
+  --farbe1: #595aff;
+  --dunkel: #1f232b;
+  --hell: #fff;
+  --bg_grid: #313543;
+  --dunkelgrau: #606984;
+}
+body {
+  padding: 0 20px;
+  background-color: var(--dunkel);
+  color: var(--hell);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.grid-item {
+  background-color: var(--bg_grid);
+  padding: 20px;
+  text-align: center;
+
+  word-wrap: break-word;
+
+  border: 1px solid var(--farbe1);
+}
+
+.grid-item a {
+  color: var(--farbe1);
+  text-decoration: none;
+}
+
+.grid-home-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+.grid-home-item {
+  background-color: var(--dunkelgrau);
+  text-align: center;
+  padding: 10px;
+}
+
+.grid-home-item a {
+  color: #fff;
+}
+
+.grid-home-item:hover {
+  background-color: var(--farbe1);
+}
+
+.themen {
+  padding: 20px 0;
+}
+
+.paginator {
+  padding: 10px 0;
+}
+
+.seiten {
+  border: 1px solid var(--farbe1);
+  padding: 3px;
+}
+
+a.seiten {
+  color: #fff;
+  text-decoration: none;
+}
+a.seiten:hover {
+  color: #fff;
+  border: 1px solid var(--hell);
+  background-color: var(--farbe1);
+  text-decoration: none;
+}
+
+a.button {
+  color: var(--hell);
+  text-decoration: none;
+  padding: 5px;
+  border: 1px solid var(--farbe1);
+}
+a.button:hover {
+  color: #fff;
+  border: 1px solid var(--farbe1);
+  background-color: var(--farbe1);
+  text-decoration: none;
+}
+
+.menu {
+  border: 1px solid var(--farbe1);
+  padding: 3px;
+  color: var(--black);
+  text-decoration: none;
+  line-height: 2;
+}
+
+.menu:hover {
+  color: #fff;
+  border: 1px solid var(--hell);
+  background-color: var(--farbe1);
+}
+
+a.nickname {
+  color: var(--dunkelgrau);
+}
+
+/* Zurück-nach-oben-Button */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  opacity: 0.7;
+  z-index: 9999;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+#back-to-top:hover {
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  opacity: 1;
+}
+
+/*
+#### FORM ADMIN
+*/
+
+input[type="text"] {
+  width: 400px;
+}
+
+@media only screen and (max-width: 300px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
