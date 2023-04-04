@@ -24,3 +24,15 @@ you can see attached pictures as well as videos and if you click on the link you
 ## DEMO
 
 [www.maechler.cloud](https://maechler.cloud/)
+
+## Install
+
+- Download fediscanner folder
+- change database password (/inc/data.php)
+- change google stat settings (google.php)
+- uploade into your hosting account
+- secure /admin/ folder with htaccess / htpasswd
+- install cronjob (/inc/crawler.php)
+- add some hashtag to your list (/admin/)
+
+enjoy your little tool
