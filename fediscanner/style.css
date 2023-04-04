@@ -4,6 +4,7 @@
   --hell: #fff;
   --bg_grid: #313543;
   --dunkelgrau: #606984;
+  --hellgrau: #faedd7;
 }
 body {
   padding: 0 20px;
@@ -15,6 +16,10 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 10px;
+}
+
+.grid-container p a {
+  color: var(--hellgrau);
 }
 
 .grid-item {
@@ -67,6 +72,7 @@ body {
 a.seiten {
   color: #fff;
   text-decoration: none;
+  line-height: 2;
 }
 a.seiten:hover {
   color: #fff;
@@ -132,13 +138,40 @@ a.nickname {
   text-decoration: none;
   opacity: 1;
 }
+/*
+#### accordioin
+*/
+summary {
+  color: var(--farbe1);
+  size: 1.5rem;
+}
 
 /*
-#### FORM ADMIN
+#### footer
 */
 
-input[type="text"] {
-  width: 400px;
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 30px 0;
+  color: var(--dunkelgrau);
+}
+
+.footer a {
+  color: var(--dunkelgrau);
+}
+
+/* 
+#### admin page
+*/
+
+.admin-container {
+  padding: 50px;
+  background-color: var(--dunkelgrau);
+}
+
+.admin-container a {
+  color: var(--bg_grid);
 }
 
 @media only screen and (max-width: 300px) {

@@ -5,18 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startseite - FediScanner </title>
+    <title>Used Hashtag in the Fediverse - FediScanner.info </title>
+    <?php 
+$some_titel = "Used Hashtag in the Fediverse - FediScanner.info ";
+$some_description = "here you will find many hashtags that are used in fediverse, so you know what is currently being talked about";
+$some_img = "https://www.fediscanner.info/images/fediscanner.jpg";
+$some_url = "https://www.fediscanner.info";
+
+echo "<meta name='robots' content='index, follow'>";
+echo "<meta name='description' content='$some_description' />";
+echo "<meta property='og:type' content='website'>";
+echo "<meta property='og:title' content='$some_titel'>";
+echo "<meta property='og:description' content='$some_description'>";
+echo "<meta property='og:image' content='$some_img' />";
+echo "<meta property='og:image:alt' content='$some_img'>";
+echo "<meta property='og:url' content='$some_url' />";
+echo "<meta name='twitter:card' content='summary_large_image'>";
+echo "<meta name='twitter:title' content='$some_titel'>";
+echo "<meta name='twitter:description' content='$some_description'>";
+echo "<meta name='twitter:image' content='$some_img' />";
+?>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h2>FediScanner - Check your Hashtag</h2>
   
    <?php 
-   include("themen.php");
-   include("inc/data.php");
+    include("inc/data.php");
+
+
+   include("menu.php");
+   
    ?>
    <div class="container paginator">
-    Ihr habt eine Idee für einen neuen Hashtag den ich Überwachen könnte? Schreib mir eine eMail an <b>info@maechler.cloud</b> und ich schau es mir an.
+    Ihr habt eine Idee für einen neuen Hashtag den ich Überwachen könnte? Schreib mir eine eMail an <b>info@fediscanner.info</b> und ich schau es mir an.
    </div>
   
 <div class="statistik">
@@ -32,32 +54,23 @@ $result2 = mysqli_query($mysqli,$query2);
 $rows2 = mysqli_fetch_assoc($result2);
 $total_hashtag = $rows2['SUM'];
 
-Echo "Total Instance in DB: $total_instance<br />";
-Echo "Total Hashtag Posts in DB: $total_hashtag<br />";
+$query3 = "SELECT COUNT(*) AS SUM FROM list_hashtag";
+$result3 = mysqli_query($mysqli,$query3);
+$rows3 = mysqli_fetch_assoc($result3);
+$recorded_hashtag = $rows3['SUM'];
+
+
+Echo "Total recorded hashtag-posts in database: $total_hashtag<br />";
+Echo "Total hashtag ever used and recorded: $recorded_hashtag<br />";
+Echo "Total instance in database: $total_instance<br />";
     ?>
 </div>
 
 
-<div class="instance">
-    <h3>Instances in Database</h3>
-<div class="grid-home-container">
+
 <?php 
-
-$sql = "SELECT * FROM instance ORDER by name DESC ";
-$result = $mysqli->query($sql);
-while ($row = $result->fetch_assoc()) {
-    $instance_name = $row['name'];
-
-    $domain = parse_url($instance_name, PHP_URL_HOST);
-echo "<div class='grid-home-item'>";
-//echo "$instance_name - $domain<br />";
-echo "<a href='$instance_name' target='_blank'>$domain</a>";
-echo "</div>";
-}
+include("footer.php");
 ?>
-    </div>
-</div>
-
 
 </body>
 </html>

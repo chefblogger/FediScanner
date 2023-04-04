@@ -1,0 +1,85 @@
+:root {
+  --farbe1: #595aff;
+  --dunkel: #1f232b;
+  --hell: #fff;
+}
+* {
+  padding: 0;
+  margin: 0;
+  background-color: var(--dunkel);
+}
+
+.adminmenu_1 {
+  padding: 10px;
+}
+
+.adminmenu_1 a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px #000 solid;
+  background-color: #000;
+  margin: 5px;
+}
+
+.adminmenu_1 a:hover {
+  background-color: var(--farbe1);
+  color: var(--hell);
+}
+
+.adminmenu_2 a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px #000 solid;
+  background-color: #000;
+  margin: 5px;
+}
+
+.adminmenu_2 a:hover {
+  background-color: var(--farbe1);
+  color: var(--hell);
+}
+
+.adminmenu_2 {
+  padding: 10px;
+}
+
+.container,
+.adminmenu {
+  color: var(--hell);
+  padding: 20px;
+}
+
+h1 {
+  color: var(--hell);
+}
+
+.urls {
+  color: var(--hell);
+  text-decoration: none;
+}
+.urls:hover {
+  color: var(--farbe1);
+  text-decoration: none;
+}
+/*
+#### FORM ADMIN
+*/
+
+input[type="text"] {
+  width: 400px;
+  margin: 20px;
+  color: var(--hell);
+  border: 1px solid var(--farbe1);
+}
+
+.submitbutton {
+  background-color: var(--dunkel);
+  font-size: 0.8rem;
+  color: var(--hell);
+}
+
+.submitbutton:hover {
+  background-color: var(--farbe1);
+  font-size: 0.8rem;
+  color: var(--hell);
+}

@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>URL hinzufügen</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name='robots' content='noindex, nofollow'>
 </head>
 <body>
+    <?php include("menu.php"); ?>
+    <div class="container">
     <h1>URL hinzufügen</h1>
     <?php
     // MySQL-Verbindung aufbauen
@@ -69,11 +72,12 @@
         <label for="url">URL:</label>
         <input type="text" name="url" id="url" required>
         <br>
-        <button type="submit">Hinzufügen</button>
+        <button type="submit" class="submitbutton">Hinzufügen</button>
     </form>
     <?php
     // MySQL-Verbindung schließen
     $mysqli->close();
     ?>
+    </div>
 </body>
 </html>
