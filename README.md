@@ -2,6 +2,9 @@
 
 A Simple PHP Script to crawl Hashtags in the Fediverse
 
+if you have any questions you can contact me directly here
+@eric_maechler@mastodon.digitalsuccess.dev
+
 ## Features
 
 - add your desired hashtag
