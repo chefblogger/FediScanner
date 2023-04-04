@@ -26,7 +26,7 @@ you can see attached pictures as well as videos and if you click on the link you
 
 ## DEMO
 
-[www.maechler.cloud](https://maechler.cloud/)
+[www.fediscanner.info](https://www.fediscanner.info/)
 
 ## Install
 
