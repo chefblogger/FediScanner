@@ -37,9 +37,7 @@ echo "<meta name='twitter:image' content='$some_img' />";
    include("menu.php");
    
    ?>
-   <div class="container paginator">
-    Ihr habt eine Idee für einen neuen Hashtag den ich Überwachen könnte? Schreib mir eine eMail an <b>info@fediscanner.info</b> und ich schau es mir an.
-   </div>
+
   
 <div class="statistik">
     <?php 
@@ -65,7 +63,9 @@ Echo "Total hashtag ever used and recorded: $recorded_hashtag<br />";
 Echo "Total instance in database: $total_instance<br />";
     ?>
 </div>
-
+   <div class="container paginator">
+    Ihr habt eine Idee für einen neuen Hashtag den ich Überwachen könnte? Schreib mir eine eMail an <b>info@fediscanner.info</b> und ich schau es mir an.
+   </div>
 
 
 <?php 

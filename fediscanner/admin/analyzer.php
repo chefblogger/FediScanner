@@ -3,7 +3,7 @@
 
 include("../inc/data.php");
 
-$sql = "SELECT * FROM articles DESC LIMIT 250 ORDER by id DESC ";
+$sql = "SELECT * FROM articles ";
 $result = $mysqli->query($sql);
 while ($row = $result->fetch_assoc()) {
     $summary = $row['summary'];
@@ -29,7 +29,7 @@ while ($row = $result->fetch_assoc()) {
         $row2 = $result2->fetch_assoc();
         $count = $row2['count'];
 
-        echo "$link<br />";
+        //echo "$link<br />";
 
         if ($count == 0) {
             // SQL-Abfrage zum Einfügen des Artikels in die MySQL-Datenbank
@@ -38,9 +38,9 @@ while ($row = $result->fetch_assoc()) {
 
             // Artikel in die MySQL-Datenbank einfügen
             if ($mysqli->query($query_sql) === TRUE) {
-                echo "Hashtag '$einzene_hashtag' erfolgreich in die Datenbank eingefügt.\n";
+                echo "Hashtag '$einzene_hashtag' erfolgreich in die Datenbank eingefügt.<br />";
             } else {
-                echo "Fehler beim Einfügen des Artikels: " . $mysqli->error . "\n";
+                echo "Fehler beim Einfügen des Artikels: " . $mysqli->error . "<br />";
             }
         } else {
             //echo "# '$einzene_hashtag' bereits in der Datenbank vorhanden, wird übersprungen.\n";

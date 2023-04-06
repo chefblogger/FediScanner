@@ -2,7 +2,7 @@
 <?php 
 
 include("inc/data.php");
-
+include("inc/lang.php");
 
 // anzahl erfasste instances
     $sql_inst = "SELECT COUNT(*) AS count_instances FROM instance";
@@ -21,7 +21,7 @@ echo "<a href='https://www.fediscanner.info' class='menu'>Home</a> ";
 echo "<a href='rec_instances.php' class='menu'>All recorded Instances ($anz_incstances)</a> ";
 echo "<a href='rec_hashtag.php' class='menu'>All recorded Hashtags ($anz_hashtag)</a> ";
 echo "<br /><br />";
-
+echo "<a href='all.php' class='menu'>All Records</a> ";
 
 // SQL-Abfrage zum Abrufen der Artikel aus der Datenbank
 $sql = "SELECT * FROM hashtags ORDER by hashtag ASC";

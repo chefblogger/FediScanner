@@ -8,11 +8,11 @@ $thema = $_REQUEST['hashtag'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $thema ?> Timeline - FediScanner.info</title>
+    <title>All Recorded Posts - FediScanner.info</title>
 
     <?php 
 $some_titel = "$thema Timeline - FediScanner.info";
-$some_description = "A list of all recorded post that have used this hashtag $thema in Fediverse";
+$some_description = "A list of all recorded post in the whole Fediverse";
 $some_img = "https://www.fediscanner.info/images/fediscanner.jpg";
 $some_url = "https://www.fediscanner.info/show.php?hashtag=$thema";
 
@@ -61,48 +61,13 @@ include("menu.php");
 
     include("inc/data.php");
 
-/*
-// SQL-Abfrage zum Abrufen der Artikel aus der Datenbank
-$sql = "SELECT * FROM articles WHERE title = '$thema'";
 
-// Artikel aus der MySQL-Datenbank abrufen
-$result = $mysqli->query($sql);
-
-// Durch jeden Artikel in der Datenbank iterieren
-while ($row = $result->fetch_assoc()) {
-    $artikel_id = $row['id'];
-    $link = $row['link'];
-    $summary = $row['summary'];
-    $published = $row['published'];
-    $media = $row['media'];
-
-    // Veröffentlichungsdatum in einen Unix-Timestamp umwandeln
-    $uhrzeit = date("d.m.Y H:i", $published);
-
-    // Link, Zusammenfassung und Veröffentlichungsdatum ausgeben
-    echo "<div class='grid-item'>";
-    echo "$uhrzeit<br />";
-    //echo "Link: $link<br>";
-    echo "Zusammenfassung: $summary<br><br>";
-
-    if (isset($media))
-    {
-        echo "<img src='$media' width='200'><br />";
-    }
-    echo "<a href='$link' target='_blank'>Link $artikel_id</a>";
-    echo "</div>";
-}
-
-// MySQL-Verbindung schließen
-$mysqli->close();
-
-*/
 
 // Definiere die Anzahl der Ergebnisse pro Seite
-$results_per_page = 20;
+$results_per_page = 100;
 
 // Hole die Anzahl der Datensätze
-$sql = "SELECT COUNT(*) AS total FROM articles WHERE title = '$thema'";
+$sql = "SELECT COUNT(*) AS total FROM articles";
 $result = $mysqli->query($sql);
 $row = $result->fetch_assoc();
 $total_results = $row['total'];
@@ -121,7 +86,7 @@ if (!isset($_GET['page'])) {
 $offset = ($current_page - 1) * $results_per_page;
 
 // Holen Sie die Daten aus der Datenbank mit LIMIT und OFFSET
-$sql = "SELECT * FROM articles WHERE title = '$thema'  ORDER by published DESC LIMIT $results_per_page OFFSET $offset";
+$sql = "SELECT * FROM articles ORDER by published DESC LIMIT $results_per_page OFFSET $offset";
 $result = $mysqli->query($sql);
 
 // Gib die Daten in deiner HTML-Seite aus
@@ -129,7 +94,7 @@ $result = $mysqli->query($sql);
 // Gib die Paginierung aus
 echo "<div class='paginator'>";
 for ($page = 1; $page <= $total_pages; $page++) {
-  echo "<a href='show.php?hashtag=$thema&page=$page' class='seiten'>$page</a> ";
+  echo "<a href='all.php?hashtag=$thema&page=$page' class='seiten'>$page</a> ";
 }
 echo "</div>";
 
@@ -201,8 +166,6 @@ while ($row = $result->fetch_assoc()) {
     ?>
     <button onclick="copyToClipboard('<?php echo $copy ?>')" class="button_copy"><?php echo $lang_copy ?></button>
     <?php 
-    echo "<br />";
-
     echo "</div>";
 }
 
@@ -220,6 +183,5 @@ $mysqli->close();
     </div>
 <a id="back-to-top" href="#">Nach oben</a>
 <?php include("javascript.php"); ?>
-
 </body>
 </html>

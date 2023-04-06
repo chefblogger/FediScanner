@@ -94,6 +94,29 @@ a.button:hover {
   text-decoration: none;
 }
 
+/*
+#### Startseite
+*/
+.statistik {
+  border: 1px solid var(--hell);
+  padding: 10px;
+  font-size: 1.3rem;
+}
+
+/*
+##### Copy Button bei Liste
+*/
+.button_copy {
+  background-color: var(--dunkel);
+  color: var(--hell);
+  border: none;
+  padding: 5px;
+  font-size: 0.5rem;
+}
+.button_copy:hover {
+  background: var(--farbe1);
+}
+
 .menu {
   border: 1px solid var(--farbe1);
   padding: 3px;
