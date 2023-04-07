@@ -218,7 +218,7 @@ $mysqli->close();
 ?>
 
     </div>
-<a id="back-to-top" href="#">Nach oben</a>
+<a id="back-to-top" href="#">UP</a>
 <?php include("javascript.php"); ?>
 
 </body>

@@ -48,7 +48,7 @@ echo "<meta name='twitter:image' content='$some_img' />";
 
 <?php 
 
-echo "<h2>$thema</h2>";
+echo "<h2>All Records</h2>";
 
 include("menu.php");
 ?>
@@ -181,7 +181,7 @@ $mysqli->close();
 ?>
 
     </div>
-<a id="back-to-top" href="#">Nach oben</a>
+<a id="back-to-top" href="#">UP</a>
 <?php include("javascript.php"); ?>
 </body>
 </html>

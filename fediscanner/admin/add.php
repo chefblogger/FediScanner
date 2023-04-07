@@ -18,9 +18,10 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Eingegebene URL auslesen
         $url = $_POST['url'];
+        $new_url = $url . '.rss';
 
         // Überprüfen, ob die URL bereits in der Datenbank vorhanden ist
-        $sql = "SELECT COUNT(*) AS count FROM urls WHERE urls = '$url'";
+        $sql = "SELECT COUNT(*) AS count FROM urls WHERE urls = '$new_url'";
         $result = $mysqli->query($sql);
         $row = $result->fetch_assoc();
         $count = $row['count'];
@@ -30,15 +31,17 @@
 
             //hashtag rauslesen
             $tag1 = explode('/tags/', $url);
-            $hashtag = substr($tag1[1], 0, -4);
+            $hashtag0 = $tag1[1];
+            $hashtag = strtolower($hashtag0);
 
             // URL in die Datenbank einfügen
-            $sql = "INSERT INTO urls (urls) VALUES ('$url')";
+            $sql = "INSERT INTO urls (urls) VALUES ('$new_url')";
             if ($mysqli->query($sql)) {
                 echo "Die URL wurde erfolgreich hinzugefügt.";
             } else {
                 echo "Fehler beim Hinzufügen der URL: " . $mysqli->error;
             }
+
 
             //hashtag in datenbank einfügen
             $sql_check = "SELECT COUNT(*) AS count FROM hashtags WHERE hashtag='$hashtag'";

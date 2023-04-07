@@ -5,6 +5,7 @@
   --bg_grid: #313543;
   --dunkelgrau: #606984;
   --hellgrau: #faedd7;
+  --markerhell: #8c8c8c;
 }
 body {
   padding: 0 20px;
@@ -46,10 +47,20 @@ body {
   background-color: var(--dunkelgrau);
   text-align: center;
   padding: 10px;
+  text-decoration: none;
+  color: var(--hell);
+}
+
+.grid-home-item-checked {
+  background: var(--markerhell);
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
 }
 
 .grid-home-item a {
   color: #fff;
+  text-decoration: none;
 }
 
 .grid-home-item:hover {
@@ -91,6 +102,10 @@ a.button:hover {
   color: #fff;
   border: 1px solid var(--farbe1);
   background-color: var(--farbe1);
+  text-decoration: none;
+}
+
+.add {
   text-decoration: none;
 }
 

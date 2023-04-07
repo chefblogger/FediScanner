@@ -9,6 +9,10 @@
   background-color: var(--dunkel);
 }
 
+p {
+  color: var(--hell);
+}
+
 .adminmenu_1 {
   padding: 10px;
 }
@@ -61,6 +65,14 @@ h1 {
   color: var(--farbe1);
   text-decoration: none;
 }
+
+.add_rss {
+  color: var(--hell);
+}
+.add_rss:hover {
+  color: var(--farbe1);
+}
+
 /*
 #### FORM ADMIN
 */

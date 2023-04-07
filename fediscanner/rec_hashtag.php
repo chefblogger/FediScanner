@@ -35,7 +35,8 @@ include("inc/data.php");
 include("menu.php");
 ?>
     <div class="instance">
-    
+    If you would like to have a hashtag recorded that is in this list, then click on the button and I will check it and release it if possible.
+    <br /><br />
 
 
     <div class="grid-home-container">
@@ -44,13 +45,46 @@ include("menu.php");
 
 $sql = "SELECT * FROM list_hashtag ORDER by hashtag ASC ";
 $result = $mysqli->query($sql);
-while ($row = $result->fetch_assoc()) {
-    $hashtag_name = $row['hashtag'];
+while ($row = $result->fetch_assoc()) 
+{
+    $hashtag_name0 = $row['hashtag'];
+    $hashtag_name = strtolower($hashtag_name0);
+    $hashtag_id = $row['id'];
+    $hashtag_origin = $row['origin'];
 
-echo "<div class='grid-home-item'>";
+    
+    //https://mastodon.social/tags/wordpress.rss
+    $check_hashtag = $hashtag_origin . '/tags/' . $hashtag_name . '.rss';
+    //echo "$check_hashtag - $hashtag_name<br />";
+    
+    // Überprüfen, ob die URL bereits in der Datenbank vorhanden ist
+        $sql_check = "SELECT COUNT(*) AS count FROM urls WHERE urls = '$check_hashtag'";
+        $result_check = $mysqli->query($sql_check);
+        $row_check = $result_check->fetch_assoc();
+        $count = $row_check['count'];
+        if ($count > 0) {
+          //echo "$hashtag_name <b>ist da</b>";
+          echo "<div class='grid-home-item-checked'>";
+          echo "$hashtag_name";
+          echo "</div>";
+        }
+        else 
+        {
+          echo "<a href='add.php?hashtag=$hashtag_id' class='add'>";
+          echo "<div class='grid-home-item'>";
+          echo "$hashtag_name";
+          echo "</div>";
+          echo "</a>";
+        }
+    
 
-echo "$hashtag_name";
-echo "</div>";
+/*
+          echo "<a href='add.php?hashtag=$hashtag_id'>";
+          echo "<div class='grid-home-item '>";
+          echo "$hashtag_name";
+          echo "</div>";
+          echo "</a>";
+  */      
 }
 ?>
     </div>

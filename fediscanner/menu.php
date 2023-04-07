@@ -16,12 +16,18 @@ include("inc/lang.php");
     $row_hashtag = $result_hashtag->fetch_assoc();
     $anz_hashtag = $row_hashtag['count_hashtag'];
 
+// anzahl erfasste posts
+    $sql_articles = "SELECT COUNT(*) AS count_articles FROM articles";
+    $result_articles = $mysqli->query($sql_articles);
+    $row_articles = $result_articles->fetch_assoc();
+    $anz_articles = $row_articles['count_articles'];
+
 
 echo "<a href='https://www.fediscanner.info' class='menu'>Home</a> ";
 echo "<a href='rec_instances.php' class='menu'>All recorded Instances ($anz_incstances)</a> ";
 echo "<a href='rec_hashtag.php' class='menu'>All recorded Hashtags ($anz_hashtag)</a> ";
 echo "<br /><br />";
-echo "<a href='all.php' class='menu'>All Records</a> ";
+echo "<a href='all.php' class='menu'>All Records ($anz_articles)</a> ";
 
 // SQL-Abfrage zum Abrufen der Artikel aus der Datenbank
 $sql = "SELECT * FROM hashtags ORDER by hashtag ASC";
