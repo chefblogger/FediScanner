@@ -27,10 +27,11 @@ $sql = "SELECT * FROM urls ORDER by id DESC ";
 $result = $mysqli->query($sql);
 while ($row = $result->fetch_assoc()) {
     $url_name = $row['urls'];
+    $id = $row['id'];
 $urls = substr($url_name, 0, -4);
 
     echo "<tr>";
-    echo "<td><a href='$urls' target='_blank' class='urls'>$url_name</a></td><td>#</td>";
+    echo "<td><a href='$urls' target='_blank' class='urls'>$url_name</a></td><td><a href='del_hashtag.php?id=$id' class='urls'>Delete</a></td>";
     echo "<tr>";
    
 }
