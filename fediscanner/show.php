@@ -99,7 +99,7 @@ $mysqli->close();
 */
 
 // Definiere die Anzahl der Ergebnisse pro Seite
-$results_per_page = 20;
+$results_per_page = 12;
 
 // Hole die Anzahl der Datensätze
 $sql = "SELECT COUNT(*) AS total FROM articles WHERE title = '$thema'";
@@ -126,13 +126,14 @@ $result = $mysqli->query($sql);
 
 // Gib die Daten in deiner HTML-Seite aus
 
+/*
 // Gib die Paginierung aus
 echo "<div class='paginator'>";
 for ($page = 1; $page <= $total_pages; $page++) {
   echo "<a href='show.php?hashtag=$thema&page=$page' class='seiten'>$page</a> ";
 }
 echo "</div>";
-
+*/
 
 echo "<div class='grid-container'>";
 // Durch jeden Artikel in der Datenbank iterieren
@@ -213,13 +214,27 @@ for ($page = 1; $page <= $total_pages; $page++) {
 }
 */
 
+
+
 // MySQL-Verbindung schließen
 $mysqli->close();
 ?>
 
     </div>
+<?php 
+// Gib die Paginierung aus
+echo "<div class='paginator'>";
+for ($page = 1; $page <= $total_pages; $page++) {
+  echo "<a href='show.php?hashtag=$thema&page=$page' class='seiten'>$page</a> ";
+}
+echo "</div>";
+?>
+  
 <a id="back-to-top" href="#">UP</a>
 <?php include("javascript.php"); ?>
 
+<?php 
+include("footer.php");
+?>
 </body>
 </html>

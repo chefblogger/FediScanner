@@ -7,6 +7,7 @@
         <a href="list_url.php"">List URL</a>
         <a href="list_futur_rss.php"">List RSS Vorschläge</a>
         <a href="delete.php">Delete</a>
+        <a href="https://www.fediscanner.info/" target="_blank">www.fediscanner.ino</a>
     </div>
     <div class="adminmenu_2">
         <a href="../inc/crawler.php" target="_blank">Crawling</a>

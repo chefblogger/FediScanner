@@ -59,7 +59,7 @@ echo "</div>";
 </div>
 
 
-<a id="back-to-top" href="#">Nach oben</a>
+<a id="back-to-top" href="#">Up</a>
 <script>
   // Zurück-nach-oben-Button einblenden, wenn nach unten gescrollt wird
 $(window).scroll(function() {

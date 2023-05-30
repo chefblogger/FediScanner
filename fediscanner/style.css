@@ -77,7 +77,7 @@ body {
 
 .seiten {
   border: 1px solid var(--farbe1);
-  padding: 3px;
+  padding: 12px;
 }
 
 a.seiten {
@@ -134,10 +134,10 @@ a.button:hover {
 
 .menu {
   border: 1px solid var(--farbe1);
-  padding: 3px;
+  padding: 10px;
   color: var(--black);
   text-decoration: none;
-  line-height: 2;
+  line-height: 45px;
 }
 
 .menu:hover {
