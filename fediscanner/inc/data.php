@@ -1,10 +1,10 @@
 <?php
 
 // MySQL-Verbindung konfigurieren
-$mysql_host = 'machlere.mysql.db.internal';
-$mysql_user = 'machlere_masto';
-$mysql_password = 'BxAapYF4aNrj?y+PA6tC';
-$mysql_database = 'machlere_masto';
+$mysql_host = 'xxx';
+$mysql_user = 'xxx';
+$mysql_password = 'xxx';
+$mysql_database = 'xxx';
 
 // MySQL-Verbindung herstellen
 $mysqli = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_database);
