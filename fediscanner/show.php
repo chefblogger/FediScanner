@@ -50,7 +50,8 @@ echo "<meta name='twitter:image' content='$some_img' />";
 
 echo "<h2>$thema</h2>";
 
-include("menu.php");
+include("menu_show.php");
+echo "<a href='index.php' class='menu'>Back</a> ";
 ?>
 
    
@@ -61,42 +62,6 @@ include("menu.php");
 
     include("inc/data.php");
 
-/*
-// SQL-Abfrage zum Abrufen der Artikel aus der Datenbank
-$sql = "SELECT * FROM articles WHERE title = '$thema'";
-
-// Artikel aus der MySQL-Datenbank abrufen
-$result = $mysqli->query($sql);
-
-// Durch jeden Artikel in der Datenbank iterieren
-while ($row = $result->fetch_assoc()) {
-    $artikel_id = $row['id'];
-    $link = $row['link'];
-    $summary = $row['summary'];
-    $published = $row['published'];
-    $media = $row['media'];
-
-    // Veröffentlichungsdatum in einen Unix-Timestamp umwandeln
-    $uhrzeit = date("d.m.Y H:i", $published);
-
-    // Link, Zusammenfassung und Veröffentlichungsdatum ausgeben
-    echo "<div class='grid-item'>";
-    echo "$uhrzeit<br />";
-    //echo "Link: $link<br>";
-    echo "Zusammenfassung: $summary<br><br>";
-
-    if (isset($media))
-    {
-        echo "<img src='$media' width='200'><br />";
-    }
-    echo "<a href='$link' target='_blank'>Link $artikel_id</a>";
-    echo "</div>";
-}
-
-// MySQL-Verbindung schließen
-$mysqli->close();
-
-*/
 
 // Definiere die Anzahl der Ergebnisse pro Seite
 $results_per_page = 12;
@@ -126,14 +91,33 @@ $result = $mysqli->query($sql);
 
 // Gib die Daten in deiner HTML-Seite aus
 
-/*
+
+// Gib die Paginierung aus
 // Gib die Paginierung aus
 echo "<div class='paginator'>";
-for ($page = 1; $page <= $total_pages; $page++) {
-  echo "<a href='show.php?hashtag=$thema&page=$page' class='seiten'>$page</a> ";
+$start_page = max($current_page - 5, 1);
+$end_page = min($current_page + 5, $total_pages);
+
+if ($start_page > 1) {
+  echo "<a href='show.php?hashtag=$thema&page=1' class='seiten'>1</a> ";
+  if ($start_page > 2) {
+    echo "<span class='dots'>...</span>";
+  }
 }
+
+for ($page = $start_page; $page <= $end_page; $page++) {
+  $active_class = ($page == $current_page) ? 'active' : '';
+  echo "<a href='show.php?hashtag=$thema&page=$page' class='seiten $active_class'>$page</a> ";
+}
+
+if ($end_page < $total_pages) {
+  if ($end_page < $total_pages - 1) {
+    echo "<span class='dots'>...</span>";
+  }
+  echo "<a href='show.php?hashtag=$thema&page=$total_pages' class='seiten'>$total_pages</a> ";
+}
+
 echo "</div>";
-*/
 
 echo "<div class='grid-container'>";
 // Durch jeden Artikel in der Datenbank iterieren
@@ -208,11 +192,31 @@ while ($row = $result->fetch_assoc()) {
 }
 
 // Gib die Paginierung aus
-/*
-for ($page = 1; $page <= $total_pages; $page++) {
-  //echo "<a href='show.php?hashtag=$thema&page=$page'>$page</a> ";
+
+echo "<div class='paginator'>";
+$start_page = max($current_page - 5, 1);
+$end_page = min($current_page + 5, $total_pages);
+
+if ($start_page > 1) {
+  echo "<a href='show.php?hashtag=$thema&page=1' class='seiten'>1</a> ";
+  if ($start_page > 2) {
+    echo "<span class='dots'>...</span>";
+  }
 }
-*/
+
+for ($page = $start_page; $page <= $end_page; $page++) {
+  $active_class = ($page == $current_page) ? 'active' : '';
+  echo "<a href='show.php?hashtag=$thema&page=$page' class='seiten $active_class'>$page</a> ";
+}
+
+if ($end_page < $total_pages) {
+  if ($end_page < $total_pages - 1) {
+    echo "<span class='dots'>...</span>";
+  }
+  echo "<a href='show.php?hashtag=$thema&page=$total_pages' class='seiten'>$total_pages</a> ";
+}
+
+echo "</div>";
 
 
 
@@ -221,14 +225,7 @@ $mysqli->close();
 ?>
 
     </div>
-<?php 
-// Gib die Paginierung aus
-echo "<div class='paginator'>";
-for ($page = 1; $page <= $total_pages; $page++) {
-  echo "<a href='show.php?hashtag=$thema&page=$page' class='seiten'>$page</a> ";
-}
-echo "</div>";
-?>
+
   
 <a id="back-to-top" href="#">UP</a>
 <?php include("javascript.php"); ?>

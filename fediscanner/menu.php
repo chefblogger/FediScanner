@@ -1,4 +1,5 @@
 <div class="themen">
+
 <?php 
 
 include("inc/data.php");
@@ -27,6 +28,12 @@ echo "<a href='https://www.fediscanner.info' class='menu'>Home</a> ";
 echo "<a href='rec_instances.php' class='menu'>All recorded Instances ($anz_incstances)</a> ";
 echo "<a href='rec_hashtag.php' class='menu'>All recorded Hashtags ($anz_hashtag)</a> ";
 echo "<br /><br />";
+
+include("search_active_hashtag.php");
+?>
+
+<?php 
+echo "<br /><br />";
 echo "<a href='all.php' class='menu'>All Records ($anz_articles)</a> ";
 
 // SQL-Abfrage zum Abrufen der Artikel aus der Datenbank
@@ -46,8 +53,11 @@ while ($row = $result->fetch_assoc()) {
     $count = $row2['count'];
     
     echo "<a href='show.php?hashtag=$hashtag' class='menu'>$hashtag ($count)</a> ";
+
+    
 }
 
 
 ?>
+
 </div>

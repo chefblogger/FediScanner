@@ -1,7 +1,7 @@
 Require valid-user
 AuthType Basic
 AuthName Adminbereich
-AuthUserFile 
+AuthUserFile /home/machlere/.htpasswds/htpasswd.d125ac5e-d416-4666-8c71-6e34ad0aa93d
 
 
 #@__HCP_END__@#

@@ -93,10 +93,31 @@ $result = $mysqli->query($sql);
 
 // Gib die Paginierung aus
 echo "<div class='paginator'>";
-for ($page = 1; $page <= $total_pages; $page++) {
-  echo "<a href='all.php?hashtag=$thema&page=$page' class='seiten'>$page</a> ";
+$start_page = max($current_page - 5, 1);
+$end_page = min($current_page + 5, $total_pages);
+
+if ($start_page > 1) {
+  echo "<a href='all.php?hashtag=$thema&page=1' class='seiten'>1</a> ";
+  if ($start_page > 2) {
+    echo "<span class='dots'>...</span>";
+  }
 }
+
+for ($page = $start_page; $page <= $end_page; $page++) {
+  $active_class = ($page == $current_page) ? 'active' : '';
+  echo "<a href='all.php?hashtag=$thema&page=$page' class='seiten $active_class'>$page</a> ";
+}
+
+if ($end_page < $total_pages) {
+  if ($end_page < $total_pages - 1) {
+    echo "<span class='dots'>...</span>";
+  }
+  echo "<a href='all.php?hashtag=$thema&page=$total_pages' class='seiten'>$total_pages</a> ";
+}
+
 echo "</div>";
+
+
 
 
 echo "<div class='grid-container'>";
@@ -168,13 +189,34 @@ while ($row = $result->fetch_assoc()) {
     <?php 
     echo "</div>";
 }
+echo "</div>";
 
 // Gib die Paginierung aus
-/*
-for ($page = 1; $page <= $total_pages; $page++) {
-  //echo "<a href='show.php?hashtag=$thema&page=$page'>$page</a> ";
+// Gib die Paginierung aus
+echo "<div class='paginator'>";
+$start_page = max($current_page - 5, 1);
+$end_page = min($current_page + 5, $total_pages);
+
+if ($start_page > 1) {
+  echo "<a href='all.php?hashtag=$thema&page=1' class='seiten'>1</a> ";
+  if ($start_page > 2) {
+    echo "<span class='dots'>...</span>";
+  }
 }
-*/
+
+for ($page = $start_page; $page <= $end_page; $page++) {
+  $active_class = ($page == $current_page) ? 'active' : '';
+  echo "<a href='all.php?hashtag=$thema&page=$page' class='seiten $active_class'>$page</a> ";
+}
+
+if ($end_page < $total_pages) {
+  if ($end_page < $total_pages - 1) {
+    echo "<span class='dots'>...</span>";
+  }
+  echo "<a href='all.php?hashtag=$thema&page=$total_pages' class='seiten'>$total_pages</a> ";
+}
+
+echo "</div>";
 
 // MySQL-Verbindung schließen
 $mysqli->close();

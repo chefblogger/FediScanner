@@ -47,6 +47,23 @@ p {
   padding: 10px;
 }
 
+.adminmenu_3 a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px #000 solid;
+  background-color: #000;
+  margin: 5px;
+}
+
+.adminmenu_3 a:hover {
+  background-color: var(--farbe1);
+  color: var(--hell);
+}
+
+.adminmenu_3 {
+  padding: 10px;
+}
+
 .container,
 .adminmenu {
   color: var(--hell);
@@ -94,4 +111,8 @@ input[type="text"] {
   background-color: var(--farbe1);
   font-size: 0.8rem;
   color: var(--hell);
+}
+
+.weiss {
+  color: #fff !important;
 }

@@ -32,7 +32,7 @@ echo "<meta name='twitter:image' content='$some_img' />";
     <h2>Instances in Database</h2>
 <?php 
 include("inc/data.php");
-include("menu.php");
+include("menu_mini.php");
 ?>
     <div class="instance">
     

@@ -3,7 +3,7 @@
 
 include("../inc/data.php");
 
-$sql = "SELECT * FROM articles ORDER BY id DESC Limit 500";
+$sql = "SELECT * FROM articles ORDER BY id DESC Limit 500000";
 //$sql = "SELECT * FROM articles ORDER BY id";
 $result = $mysqli->query($sql);
 while ($row = $result->fetch_assoc()) {
