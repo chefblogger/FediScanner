@@ -3,7 +3,7 @@
 A Simple PHP Script to crawl Hashtags in the Fediverse
 
 if you have any questions you can contact me directly here
-@eric_maechler@mastodon.digitalsuccess.dev
+[@emaechler@mastodon.maechler.cloud](@emaechler@mastodon.maechler.cloud1)
 
 ## Features
 
