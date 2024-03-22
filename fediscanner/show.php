@@ -3,7 +3,18 @@
 <head>
 <?php 
 include("google.php"); 
-$thema = $_REQUEST['hashtag'];
+//$thema = $_REQUEST['hashtag'];
+
+/*
+    XSS SÄUBERUNG
+*/
+// Benutzereingabe validieren und bereinigen
+$hashtag_input = $_GET['hashtag'];
+$hashtag_validated = preg_replace('/[^a-zA-Z0-9_\-]/', '', $hashtag_input);
+
+// Benutzereingabe für die sichere Ausgabe vorbereiten
+$thema = htmlspecialchars($hashtag_validated, ENT_QUOTES, 'UTF-8');
+
 ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
