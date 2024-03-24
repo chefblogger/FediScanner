@@ -28,7 +28,7 @@ echo "<meta name='twitter:image' content='$some_img' />";
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>FediScanner - Check your Hashtag</h2>
+    <h2>FediScanner - Check Hashtag in the Fediverse</h2>
   
    <?php 
     include("inc/data.php");

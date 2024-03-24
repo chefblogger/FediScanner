@@ -28,3 +28,26 @@ function copyToClipboard(text) {
     });
 }
 </script>
+
+
+<script>
+    // Referenz zum Button und zum Div
+const klappenButton = document.querySelector('.klappenButtonPaginator');
+const listHashtagDiv = document.querySelector('.show_paginator');
+
+// Event-Handler für den Klick auf den Button
+klappenButton.addEventListener('click', () => {
+    // Überprüfen, ob das Div sichtbar ist
+    if (listHashtagDiv.style.display === 'none') {
+        // Wenn es ausgeblendet ist, dann einblenden
+        listHashtagDiv.style.display = 'block';
+        // ändert text in schliessen
+        klappenButton.textContent = "Close Paginator"
+    } else {
+        // Wenn es sichtbar ist, dann ausblenden
+        listHashtagDiv.style.display = 'none';
+        klappenButton.textContent = "Open Paginator"
+    }
+});
+
+</script>

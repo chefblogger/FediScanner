@@ -3,7 +3,7 @@
 A Simple PHP Script to crawl Hashtags in the Fediverse
 
 if you have any questions you can contact me directly here
-[@emaechler@mastodon.maechler.cloud](https://mastodon.maechler.cloud/@emaechler)
+@emaechler@mastodon.maechler.cloud
 
 ## Features
 
@@ -11,8 +11,9 @@ if you have any questions you can contact me directly here
 - cronjob
 - list of all recorded hashtags
 - list of all recorded instance from all fediverse
+- simple report system to block posts. admin can check this posts
 
-## ScreenShot
+## Screenshot
 
 this is the start page where you can see a small statistic as well as all recorded instances in fediverse
 
@@ -39,3 +40,6 @@ you can see attached pictures as well as videos and if you click on the link you
 - add some hashtag to your list (/admin/)
 
 enjoy your little tool
+
+## Last Update
+Mrz 2024
